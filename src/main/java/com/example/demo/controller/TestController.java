@@ -31,9 +31,7 @@ public class TestController {
 	@RequestMapping("/add")
 	public String add() {
 		Author author = new Author();
-		author.setAge(1312);
 		author.setName("kkk");
-		author.setSex("boy");
 		authorService.add(author);
 		return "添加成功！";
 	}
@@ -41,7 +39,7 @@ public class TestController {
 	@RequestMapping("/get")
 	public String get(int id) {
 		Author author = authorService.get(id);
-		return "name:"+author.name+",age:"+author.age+",sex:"+author.sex;
+		return null;
 	}
 	
 	@RequestMapping("/delete")

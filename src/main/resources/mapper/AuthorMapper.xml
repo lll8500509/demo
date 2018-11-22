@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.AuthorMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.Author" >
+    <id column="author_id" property="authorId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="author_url" property="authorUrl" jdbcType="VARCHAR" />
+    <result column="post_num" property="postNum" jdbcType="INTEGER" />
+    <result column="post_age" property="postAge" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    author_id, name, author_url, post_num, post_age
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from author
+    where author_id = #{authorId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from author
+    where author_id = #{authorId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.Author" >
+    insert into author (author_id, name, author_url, 
+      post_num, post_age)
+    values (#{authorId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{authorUrl,jdbcType=VARCHAR}, 
+      #{postNum,jdbcType=INTEGER}, #{postAge,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.Author" >
+    insert into author
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="authorId != null" >
+        author_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="authorUrl != null" >
+        author_url,
+      </if>
+      <if test="postNum != null" >
+        post_num,
+      </if>
+      <if test="postAge != null" >
+        post_age,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="authorId != null" >
+        #{authorId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="authorUrl != null" >
+        #{authorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="postNum != null" >
+        #{postNum,jdbcType=INTEGER},
+      </if>
+      <if test="postAge != null" >
+        #{postAge,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.Author" >
+    update author
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="authorUrl != null" >
+        author_url = #{authorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="postNum != null" >
+        post_num = #{postNum,jdbcType=INTEGER},
+      </if>
+      <if test="postAge != null" >
+        post_age = #{postAge,jdbcType=INTEGER},
+      </if>
+    </set>
+    where author_id = #{authorId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.Author" >
+    update author
+    set name = #{name,jdbcType=VARCHAR},
+      author_url = #{authorUrl,jdbcType=VARCHAR},
+      post_num = #{postNum,jdbcType=INTEGER},
+      post_age = #{postAge,jdbcType=INTEGER}
+    where author_id = #{authorId,jdbcType=BIGINT}
+  </update>
+</mapper>

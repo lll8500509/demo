@@ -1,38 +1,53 @@
 package com.example.demo.model;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-@Component
-@ConfigurationProperties(prefix="author")
 public class Author {
-	public int id;
-	public String name;
-	public int age;
-	public String sex;
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+    private Long authorId;
+
+    private String name;
+
+    private String authorUrl;
+
+    private Integer postNum;
+
+    private Integer postAge;
+
+    public Long getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthorUrl() {
+        return authorUrl;
+    }
+
+    public void setAuthorUrl(String authorUrl) {
+        this.authorUrl = authorUrl;
+    }
+
+    public Integer getPostNum() {
+        return postNum;
+    }
+
+    public void setPostNum(Integer postNum) {
+        this.postNum = postNum;
+    }
+
+    public Integer getPostAge() {
+        return postAge;
+    }
+
+    public void setPostAge(Integer postAge) {
+        this.postAge = postAge;
+    }
 }
