@@ -60,6 +60,7 @@ public class CrawlerUtils {
 	}
 	
 	public static void main(String[] args) {
+		//sss
 		//getText("https://tieba.baidu.com/f?kw=%E7%BD%91%E6%98%93%E9%98%B4%E9%98%B3%E5%B8%88&fr=index&fp=0&ie=utf-8");
 		getAuthorInfoByUrl("http://tieba.baidu.com/home/main/?un=%E5%B0%8F%E6%B0%B4%E6%99%B6%E8%8E%AB%E8%8E%AB&amp;ie=utf-8&amp;id=5169e5b08fe6b0b4e699b6e88eabe88eaba513&amp;fr=frs");
 	
