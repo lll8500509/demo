@@ -5,13 +5,18 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="author_id" property="authorId" jdbcType="BIGINT" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="author_url" property="authorUrl" jdbcType="VARCHAR" />
+    <result column="author_url_md5" property="authorUrlMd5" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="reply_num" property="replyNum" jdbcType="BIGINT" />
+    <result column="last_reply_time" property="lastReplyTime" jdbcType="VARCHAR" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, url, author_id, type, add_time, update_time
+    id, title, url, author, author_url, author_url_md5, type, reply_num, last_reply_time, 
+    add_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -25,11 +30,13 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.Post" >
     insert into post (id, title, url, 
-      author_id, type, add_time, 
-      update_time)
+      author, author_url, author_url_md5, 
+      type, reply_num, last_reply_time, 
+      add_time, update_time)
     values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
-      #{authorId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{author,jdbcType=VARCHAR}, #{authorUrl,jdbcType=VARCHAR}, #{authorUrlMd5,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{replyNum,jdbcType=BIGINT}, #{lastReplyTime,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.Post" >
     insert into post
@@ -43,11 +50,23 @@
       <if test="url != null" >
         url,
       </if>
-      <if test="authorId != null" >
-        author_id,
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="authorUrl != null" >
+        author_url,
+      </if>
+      <if test="authorUrlMd5 != null" >
+        author_url_md5,
       </if>
       <if test="type != null" >
         type,
+      </if>
+      <if test="replyNum != null" >
+        reply_num,
+      </if>
+      <if test="lastReplyTime != null" >
+        last_reply_time,
       </if>
       <if test="addTime != null" >
         add_time,
@@ -66,11 +85,23 @@
       <if test="url != null" >
         #{url,jdbcType=VARCHAR},
       </if>
-      <if test="authorId != null" >
-        #{authorId,jdbcType=BIGINT},
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorUrl != null" >
+        #{authorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="authorUrlMd5 != null" >
+        #{authorUrlMd5,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
         #{type,jdbcType=INTEGER},
+      </if>
+      <if test="replyNum != null" >
+        #{replyNum,jdbcType=BIGINT},
+      </if>
+      <if test="lastReplyTime != null" >
+        #{lastReplyTime,jdbcType=VARCHAR},
       </if>
       <if test="addTime != null" >
         #{addTime,jdbcType=TIMESTAMP},
@@ -89,11 +120,23 @@
       <if test="url != null" >
         url = #{url,jdbcType=VARCHAR},
       </if>
-      <if test="authorId != null" >
-        author_id = #{authorId,jdbcType=BIGINT},
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorUrl != null" >
+        author_url = #{authorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="authorUrlMd5 != null" >
+        author_url_md5 = #{authorUrlMd5,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
         type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="replyNum != null" >
+        reply_num = #{replyNum,jdbcType=BIGINT},
+      </if>
+      <if test="lastReplyTime != null" >
+        last_reply_time = #{lastReplyTime,jdbcType=VARCHAR},
       </if>
       <if test="addTime != null" >
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -108,10 +151,25 @@
     update post
     set title = #{title,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
-      author_id = #{authorId,jdbcType=BIGINT},
+      author = #{author,jdbcType=VARCHAR},
+      author_url = #{authorUrl,jdbcType=VARCHAR},
+      author_url_md5 = #{authorUrlMd5,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},
+      reply_num = #{replyNum,jdbcType=BIGINT},
+      last_reply_time = #{lastReplyTime,jdbcType=VARCHAR},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <insert id="insertListPost" parameterType="java.util.List">
+  	insert into post
+	  (title,url,author,author_url,author_url_md5,type,reply_num,last_reply_time,add_time,update_time) 
+	values
+	<foreach collection="list" item="item" index="index" separator=",">
+	  (#{item.title},#{item.url},#{item.author},#{item.authorUrl},#{item.authorUrlMd5},#{item.type},#{item.replyNum},#{item.lastReplyTime},#{item.addTime},#{item.updateTime})
+	</foreach> 
+	on duplicate key update 
+ 	title=values(title),url=values(url),author=values(author),author_url=values(author_url),author_url_md5=values(author_url_md5),type=values(type),reply_num=values(reply_num),last_reply_time=values(last_reply_time)
+  </insert>
 </mapper>

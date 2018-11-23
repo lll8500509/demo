@@ -1,5 +1,7 @@
 package com.example.demo.mapper;
 
+import java.util.List;
+
 import com.example.demo.model.Post;
 
 public interface PostMapper {
@@ -14,4 +16,6 @@ public interface PostMapper {
     int updateByPrimaryKeySelective(Post record);
 
     int updateByPrimaryKey(Post record);
+    
+    int insertListPost(List<Post> list);
 }

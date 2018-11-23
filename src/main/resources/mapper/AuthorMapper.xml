@@ -5,11 +5,13 @@
     <id column="author_id" property="authorId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="author_url" property="authorUrl" jdbcType="VARCHAR" />
+    <result column="author_url_md5" property="authorUrlMd5" jdbcType="VARCHAR" />
     <result column="post_num" property="postNum" jdbcType="INTEGER" />
     <result column="post_age" property="postAge" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    author_id, name, author_url, post_num, post_age
+    author_id, name, author_url, author_url_md5, post_num, post_age, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -23,9 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.Author" >
     insert into author (author_id, name, author_url, 
-      post_num, post_age)
+      author_url_md5, post_num, post_age, 
+      update_time)
     values (#{authorId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{authorUrl,jdbcType=VARCHAR}, 
-      #{postNum,jdbcType=INTEGER}, #{postAge,jdbcType=INTEGER})
+      #{authorUrlMd5,jdbcType=VARCHAR}, #{postNum,jdbcType=INTEGER}, #{postAge,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.Author" >
     insert into author
@@ -39,11 +43,17 @@
       <if test="authorUrl != null" >
         author_url,
       </if>
+      <if test="authorUrlMd5 != null" >
+        author_url_md5,
+      </if>
       <if test="postNum != null" >
         post_num,
       </if>
       <if test="postAge != null" >
         post_age,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -56,11 +66,17 @@
       <if test="authorUrl != null" >
         #{authorUrl,jdbcType=VARCHAR},
       </if>
+      <if test="authorUrlMd5 != null" >
+        #{authorUrlMd5,jdbcType=VARCHAR},
+      </if>
       <if test="postNum != null" >
         #{postNum,jdbcType=INTEGER},
       </if>
       <if test="postAge != null" >
         #{postAge,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -73,11 +89,17 @@
       <if test="authorUrl != null" >
         author_url = #{authorUrl,jdbcType=VARCHAR},
       </if>
+      <if test="authorUrlMd5 != null" >
+        author_url_md5 = #{authorUrlMd5,jdbcType=VARCHAR},
+      </if>
       <if test="postNum != null" >
         post_num = #{postNum,jdbcType=INTEGER},
       </if>
       <if test="postAge != null" >
         post_age = #{postAge,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where author_id = #{authorId,jdbcType=BIGINT}
@@ -86,8 +108,10 @@
     update author
     set name = #{name,jdbcType=VARCHAR},
       author_url = #{authorUrl,jdbcType=VARCHAR},
+      author_url_md5 = #{authorUrlMd5,jdbcType=VARCHAR},
       post_num = #{postNum,jdbcType=INTEGER},
-      post_age = #{postAge,jdbcType=INTEGER}
+      post_age = #{postAge,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where author_id = #{authorId,jdbcType=BIGINT}
   </update>
 </mapper>

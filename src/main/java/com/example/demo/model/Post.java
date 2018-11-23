@@ -9,9 +9,17 @@ public class Post {
 
     private String url;
 
-    private Long authorId;
+    private String author;
+
+    private String authorUrl;
+
+    private String authorUrlMd5;
 
     private Integer type;
+
+    private Long replyNum;
+
+    private String lastReplyTime;
 
     private Date addTime;
 
@@ -41,12 +49,28 @@ public class Post {
         this.url = url;
     }
 
-    public Long getAuthorId() {
-        return authorId;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthorUrl() {
+        return authorUrl;
+    }
+
+    public void setAuthorUrl(String authorUrl) {
+        this.authorUrl = authorUrl;
+    }
+
+    public String getAuthorUrlMd5() {
+        return authorUrlMd5;
+    }
+
+    public void setAuthorUrlMd5(String authorUrlMd5) {
+        this.authorUrlMd5 = authorUrlMd5;
     }
 
     public Integer getType() {
@@ -55,6 +79,22 @@ public class Post {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Long getReplyNum() {
+        return replyNum;
+    }
+
+    public void setReplyNum(Long replyNum) {
+        this.replyNum = replyNum;
+    }
+
+    public String getLastReplyTime() {
+        return lastReplyTime;
+    }
+
+    public void setLastReplyTime(String lastReplyTime) {
+        this.lastReplyTime = lastReplyTime;
     }
 
     public Date getAddTime() {

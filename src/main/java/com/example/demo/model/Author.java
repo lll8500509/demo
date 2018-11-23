@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.Date;
+
 public class Author {
     private Long authorId;
 
@@ -7,9 +9,13 @@ public class Author {
 
     private String authorUrl;
 
+    private String authorUrlMd5;
+
     private Integer postNum;
 
     private Integer postAge;
+
+    private Date updateTime;
 
     public Long getAuthorId() {
         return authorId;
@@ -35,6 +41,14 @@ public class Author {
         this.authorUrl = authorUrl;
     }
 
+    public String getAuthorUrlMd5() {
+        return authorUrlMd5;
+    }
+
+    public void setAuthorUrlMd5(String authorUrlMd5) {
+        this.authorUrlMd5 = authorUrlMd5;
+    }
+
     public Integer getPostNum() {
         return postNum;
     }
@@ -49,5 +63,13 @@ public class Author {
 
     public void setPostAge(Integer postAge) {
         this.postAge = postAge;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

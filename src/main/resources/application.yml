@@ -1,10 +1,10 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
     datasource:
         name: dataSource 
-        url: jdbc:mysql://127.0.0.1:3306/demo 
+        url: jdbc:mysql://127.0.0.1:3306/tieba 
         username: root 
         password: 123456 
         type: com.alibaba.druid.pool.DruidDataSource 
