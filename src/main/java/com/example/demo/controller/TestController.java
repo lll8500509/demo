@@ -28,29 +28,4 @@ public class TestController {
 		return "name:"+name+",age:"+age+",sex:"+sex;
 	}
 	
-	@RequestMapping("/add")
-	public String add() {
-		Author author = new Author();
-		author.setName("kkk");
-		authorService.add(author);
-		return "添加成功！";
-	}
-	
-	@RequestMapping("/get")
-	public String get(int id) {
-		Author author = authorService.get(id);
-		return null;
-	}
-	
-	@RequestMapping("/delete")
-	public String delete(int id) {
-		authorService.delete(id);
-		return "删除成功！";
-	}
-	
-	@RequestMapping("/update")
-	public String delete(Author author) {
-		authorService.update(author);
-		return "更新成功！";
-	}
 }

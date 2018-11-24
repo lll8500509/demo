@@ -7,7 +7,7 @@
     <result column="author_url" property="authorUrl" jdbcType="VARCHAR" />
     <result column="author_url_md5" property="authorUrlMd5" jdbcType="VARCHAR" />
     <result column="post_num" property="postNum" jdbcType="INTEGER" />
-    <result column="post_age" property="postAge" jdbcType="INTEGER" />
+    <result column="post_age" property="postAge" jdbcType="DOUBLE" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -24,12 +24,12 @@
     where author_id = #{authorId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.Author" >
-    insert into author (author_id, name, author_url, 
-      author_url_md5, post_num, post_age, 
-      update_time)
-    values (#{authorId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{authorUrl,jdbcType=VARCHAR}, 
-      #{authorUrlMd5,jdbcType=VARCHAR}, #{postNum,jdbcType=INTEGER}, #{postAge,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    insert into author ( name, author_url, 
+      author_url_md5, post_num, post_age)
+    values (#{name,jdbcType=VARCHAR}, #{authorUrl,jdbcType=VARCHAR}, 
+      #{authorUrlMd5,jdbcType=VARCHAR}, #{postNum,jdbcType=INTEGER}, #{postAge,jdbcType=INTEGER})
+    on duplicate key update
+    name=values(name),post_num=values(post_num),post_age=values(post_age)
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.Author" >
     insert into author

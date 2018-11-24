@@ -13,7 +13,7 @@ public class Author {
 
     private Integer postNum;
 
-    private Integer postAge;
+    private Double postAge;
 
     private Date updateTime;
 
@@ -57,11 +57,11 @@ public class Author {
         this.postNum = postNum;
     }
 
-    public Integer getPostAge() {
+    public Double getPostAge() {
         return postAge;
     }
 
-    public void setPostAge(Integer postAge) {
+    public void setPostAge(Double postAge) {
         this.postAge = postAge;
     }
 
