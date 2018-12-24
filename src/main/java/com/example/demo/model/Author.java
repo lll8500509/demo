@@ -11,7 +11,7 @@ public class Author {
 
     private String authorUrlMd5;
 
-    private Integer postNum;
+    private Double postNum;
 
     private Double postAge;
 
@@ -49,15 +49,15 @@ public class Author {
         this.authorUrlMd5 = authorUrlMd5;
     }
 
-    public Integer getPostNum() {
-        return postNum;
-    }
+    public Double getPostNum() {
+		return postNum;
+	}
 
-    public void setPostNum(Integer postNum) {
-        this.postNum = postNum;
-    }
+	public void setPostNum(Double postNum) {
+		this.postNum = postNum;
+	}
 
-    public Double getPostAge() {
+	public Double getPostAge() {
         return postAge;
     }
 

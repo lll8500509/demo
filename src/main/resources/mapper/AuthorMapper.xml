@@ -6,7 +6,7 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="author_url" property="authorUrl" jdbcType="VARCHAR" />
     <result column="author_url_md5" property="authorUrlMd5" jdbcType="VARCHAR" />
-    <result column="post_num" property="postNum" jdbcType="INTEGER" />
+    <result column="post_num" property="postNum" jdbcType="DOUBLE" />
     <result column="post_age" property="postAge" jdbcType="DOUBLE" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>

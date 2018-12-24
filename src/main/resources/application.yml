@@ -31,4 +31,12 @@ author:
    name: lei
    age: 24231
    sex: boy
+   
+#配置分页插件pagehelper
+pagehelper:
+    helperDialect: mysql
+    reasonable: flase
+    supportMethodsArguments: true
+    params: count=countSql
   
+page: 19

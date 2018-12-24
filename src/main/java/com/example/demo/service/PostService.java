@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.PostMapper;
 import com.example.demo.model.Post;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 @Service
 public class PostService {
@@ -41,5 +43,11 @@ public class PostService {
 		}
 		LOGGER.info("插入list帖子成功");
 		return SUCCESS;
+	}
+	
+	public List<Post> getListPost(int pn){
+		PageHelper.startPage(pn, 10);
+		PageInfo<Post> page = new PageInfo<Post>(postMapper.getListPost());
+		return page.getList();
 	}
 }

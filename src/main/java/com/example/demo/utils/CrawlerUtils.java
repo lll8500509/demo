@@ -91,7 +91,7 @@ public class CrawlerUtils {
 		author.setAuthorUrlMd5(DigestUtils.md5Hex(url));
 		author.setName(userName);
 		author.setPostAge(Double.parseDouble(getNumber(postAge)));
-		author.setPostNum(Integer.parseInt(getNumber(postNum)));
+		author.setPostNum(Double.parseDouble(getNumber(postNum)));
 		return author;
 	}
 	
@@ -116,7 +116,7 @@ public class CrawlerUtils {
 	  * @return 提取后的数字
 	  */ 
 	 public static String getNumber(String str) {
-		 Pattern p  =  Pattern.compile("\\d+\\.?\\d+");
+		 Pattern p  =  Pattern.compile("\\d+\\.?\\d*");
 		 Matcher m = p.matcher(str);
 		 if(m.find()) {
 			 if(m.group()!=null) {
@@ -129,7 +129,8 @@ public class CrawlerUtils {
 
 	public static void main(String[] args) {
 		//getListPost("https://tieba.baidu.com/f?kw=%E7%BD%91%E6%98%93%E9%98%B4%E9%98%B3%E5%B8%88&fr=index&fp=0&ie=utf-8");
-		//getAuthorInfoByUrl("http://tieba.baidu.com/home/main/?un=%E5%B0%8F%E6%B0%B4%E6%99%B6%E8%8E%AB%E8%8E%AB&amp;ie=utf-8&amp;id=5169e5b08fe6b0b4e699b6e88eabe88eaba513&amp;fr=frs");
-		//System.out.println(getNumber("aaa2.823"));
+		//getAuthorInfoByUrl("https://tieba.baidu.com/home/main/?un=%E8%A1%A3%E4%BB%99%E7%94%B2%E9%87%91&ie=utf-8&id=7b1fe8a1a3e4bb99e794b2e98791342f&fr=frs");
+		//getAuthorInfoByUrl("https://tieba.baidu.com/home/main/?un=%E9%83%BDTND%E6%B5%AE%E4%BA%91&ie=utf-8&id=2732e983bd544e44e6b5aee4ba91a11c&fr=frs");
+		System.out.println(getNumber("首都航空:3年"));
 	}
 }

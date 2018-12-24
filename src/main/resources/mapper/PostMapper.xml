@@ -164,12 +164,16 @@
   
   <insert id="insertListPost" parameterType="java.util.List">
   	insert into post
-	  (title,url,author,author_url,author_url_md5,type,reply_num,last_reply_time,add_time,update_time) 
+	  (title,url,author,author_url,author_url_md5,type,reply_num,last_reply_time,add_time) 
 	values
 	<foreach collection="list" item="item" index="index" separator=",">
-	  (#{item.title},#{item.url},#{item.author},#{item.authorUrl},#{item.authorUrlMd5},#{item.type},#{item.replyNum},#{item.lastReplyTime},#{item.addTime},#{item.updateTime})
+	  (#{item.title},#{item.url},#{item.author},#{item.authorUrl},#{item.authorUrlMd5},#{item.type},#{item.replyNum},#{item.lastReplyTime},#{item.addTime})
 	</foreach> 
 	on duplicate key update 
  	title=values(title),url=values(url),author=values(author),author_url=values(author_url),author_url_md5=values(author_url_md5),type=values(type),reply_num=values(reply_num),last_reply_time=values(last_reply_time)
   </insert>
+  
+  <select id="getListPost"  resultMap="BaseResultMap">
+  	select * from post
+  </select>
 </mapper>

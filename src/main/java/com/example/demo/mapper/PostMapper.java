@@ -18,4 +18,6 @@ public interface PostMapper {
     int updateByPrimaryKey(Post record);
     
     int insertListPost(List<Post> list);
+    
+    List<Post> getListPost();
 }

@@ -15,7 +15,6 @@ public class GetInsertListMsg {
 	public static <T> void getEntityMsg(T T,String tableName) {
 		Class<? extends Object> cz = T.getClass();
 		Field[] fs = cz.getDeclaredFields();
-		
 		String insert= "";
 		String value = "";
 		String update="";
