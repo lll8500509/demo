@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Author;
 import com.example.demo.model.Post;
 import com.example.demo.service.AuthorService;
+import com.example.demo.service.NovelService;
 import com.example.demo.service.PostService;
 import com.example.demo.utils.CrawlerUtils;
 
@@ -20,6 +20,9 @@ public class CrawlerController {
 	
 	@Autowired
 	AuthorService authorService;
+	
+	@Autowired
+	NovelService novelService;
 	
 	@RequestMapping("/crawlerPost")
 	public void crawlerPost() {
@@ -36,5 +39,15 @@ public class CrawlerController {
 		//authorService.insertAuthor(author);
 		authorService.insertListAuthor(page);
 		return "成功";
+	}
+	
+	@RequestMapping("/crawlerNovel")
+	public void crawlerNovel() {
+		novelService.CrawlNovel();
+	}
+	
+	@RequestMapping("/exportNovel")
+	public void exportNovel() {
+		novelService.exportNovel();
 	}
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.NovelMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.Novel" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="next_url" property="nextUrl" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+
+<insert id="insertNovel" parameterType="com.example.demo.model.Novel" >
+	insert into novel (title,content,next_url,url) 
+	values (#{title},#{content},#{nextUrl},#{url})
+	on duplicate key update 
+ 	title=values(title),url=values(url),content=values(content),next_url=values(next_url)
+</insert>
+
+<select id="getNovel" resultMap="BaseResultMap">
+	select * from novel
+</select>
+</mapper>

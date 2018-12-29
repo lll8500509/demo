@@ -49,7 +49,6 @@ public class CrawlerUtils {
 			String authorUrl = e.select("div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > .frs-author-name-wrap > a:nth-child(1)").attr("abs:href");
 			String replyNum = e.select("div:nth-child(1) > span:nth-child(1)").text();
 			String lastReplyTime = e.select("div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)").text();
-			
 			Post post = new Post();
 			post.setTitle(filterEmoji(title));
 			post.setUrl(TBurl);
