@@ -15,8 +15,8 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.demo.model.Author;
-import com.example.demo.model.Post;
+import com.example.demo.model.tieba.Author;
+import com.example.demo.model.tieba.Post;
 
 public class CrawlerUtils {
 	

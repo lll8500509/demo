@@ -3,29 +3,51 @@ server:
 
 spring:
     datasource:
-        name: dataSource 
-        url: jdbc:mysql://127.0.0.1:3306/novel 
-        username: root 
-        password: 123456 
-        type: com.alibaba.druid.pool.DruidDataSource 
-        driverClassName: com.mysql.jdbc.Driver 
-        filters: stat
-        maxActive: 20
-        initialSize: 1
-        maxWait: 60000
-        minIdle: 1
-        timeBetweenEvictionRunsMillis: 60000
-        minEvictableIdleTimeMillis: 300000
-        validationQuery: select 'x'
-        testWhileIdle: true
-        testOnBorrow: false
-        testOnReturn: false
-        poolPreparedStatements: true
-        maxOpenPreparedStatements: 20
+       druid:
+          tieba:
+            name: tieba 
+            url: jdbc:mysql://127.0.0.1:3306/tieba 
+            username: root 
+            password: 123456 
+            type: com.alibaba.druid.pool.DruidDataSource
+            driverClassName: com.mysql.jdbc.Driver
+            filters: stat
+            maxActive: 20
+            initialSize: 1
+            maxWait: 60000
+            minIdle: 1
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: select 'x'
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxOpenPreparedStatements: 20
+          novel:
+            name: novel 
+            url: jdbc:mysql://127.0.0.1:3306/novel
+            username: root 
+            password: 123456
+            type: com.alibaba.druid.pool.DruidDataSource
+            driverClassName: com.mysql.jdbc.Driver
+            filters: stat
+            maxActive: 20
+            initialSize: 1
+            maxWait: 60000
+            minIdle: 1
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: select 'x'
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxOpenPreparedStatements: 20
 
 mybatis:
-  mapper-locations: classpath:/mapper/*.xml  
-  type-aliases-package: com.example.demo.model
+  mapper-locations: classpath:/mapper/**/*.xml  
+  type-aliases-package: com.example.demo.model.*
 
 author:
    name: lei

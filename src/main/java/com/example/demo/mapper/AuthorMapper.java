@@ -1,7 +1,10 @@
 package com.example.demo.mapper;
 
-import com.example.demo.model.Author;
+import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.model.tieba.Author;
+
+@Mapper
 public interface AuthorMapper {
     int deleteByPrimaryKey(Long authorId);
 

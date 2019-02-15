@@ -2,7 +2,7 @@ package com.example.demo;
 
 import java.lang.reflect.Field;
 
-import com.example.demo.model.Post;
+import com.example.demo.model.tieba.Post;
 
 public class GetInsertListMsg {
 

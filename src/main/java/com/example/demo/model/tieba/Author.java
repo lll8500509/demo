@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.model.tieba;
 
 import java.util.Date;
 

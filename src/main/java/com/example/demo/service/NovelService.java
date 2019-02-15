@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.NovelMapper;
-import com.example.demo.model.Novel;
+import com.example.demo.model.novel.Novel;
 import com.example.demo.utils.ExportUtils;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
@@ -103,7 +103,9 @@ public class NovelService {
 	}
 	
 	public void CrawlNovel() {
-		String url = "https://www.ciweimao.com/chapter/101535411";
+		
+		//String url = "https://www.ciweimao.com/chapter/101535411";
+		String url = "https://www.ciweimao.com/chapter/101659745";
 		Document document = null;
 		String nextUrl = null;
 		Novel novel = null;

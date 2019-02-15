@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Post;
+import com.example.demo.model.tieba.Post;
 import com.example.demo.service.AuthorService;
 import com.example.demo.service.NovelService;
 import com.example.demo.service.PostService;

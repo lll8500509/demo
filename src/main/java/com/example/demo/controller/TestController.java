@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Config.TestConfig;
-import com.example.demo.model.Author;
+import com.example.demo.model.tieba.Author;
 import com.example.demo.service.AuthorService;
 
 @RestController

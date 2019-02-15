@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.example.demo.model.Novel;
+import com.example.demo.model.novel.Novel;
 
 public class ExportUtils {
 	

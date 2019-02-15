@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.demo.model.Novel;
+import com.example.demo.model.novel.Novel;
 
 @Mapper
 public interface NovelMapper {

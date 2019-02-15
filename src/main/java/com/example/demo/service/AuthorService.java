@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.AuthorMapper;
-import com.example.demo.model.Author;
-import com.example.demo.model.Post;
+import com.example.demo.model.tieba.Author;
+import com.example.demo.model.tieba.Post;
 import com.example.demo.utils.CrawlerUtils;
 
 @Service

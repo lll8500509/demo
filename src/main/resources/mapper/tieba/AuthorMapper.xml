@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.mapper.AuthorMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.model.Author" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.tieba.Author" >
     <id column="author_id" property="authorId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="author_url" property="authorUrl" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from author
     where author_id = #{authorId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.example.demo.model.Author" >
+  <insert id="insert" parameterType="com.example.demo.model.tieba.Author" >
     insert into author ( name, author_url, 
       author_url_md5, post_num, post_age)
     values (#{name,jdbcType=VARCHAR}, #{authorUrl,jdbcType=VARCHAR}, 
@@ -31,7 +31,7 @@
     on duplicate key update
     name=values(name),post_num=values(post_num),post_age=values(post_age)
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.model.Author" >
+  <insert id="insertSelective" parameterType="com.example.demo.model.tieba.Author" >
     insert into author
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="authorId != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.Author" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.tieba.Author" >
     update author
     <set >
       <if test="name != null" >
@@ -104,7 +104,7 @@
     </set>
     where author_id = #{authorId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.Author" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.tieba.Author" >
     update author
     set name = #{name,jdbcType=VARCHAR},
       author_url = #{authorUrl,jdbcType=VARCHAR},

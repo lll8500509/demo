@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Primary;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
-@Configuration  
+  
 public class DruidDBConfig {
 		private Logger logger = LoggerFactory.getLogger(DruidDBConfig.class);
 	      
-	    @Value("${spring.datasource.url}")  
+	  /*  @Value("${spring.datasource.url}")  
 	    private String dbUrl;  
 	      
 	    @Value("${spring.datasource.username}")  
@@ -62,8 +62,8 @@ public class DruidDBConfig {
 	    @Value("${spring.datasource.poolPreparedStatements}")  
 	    private boolean poolPreparedStatements;  
 	      
-	    /*@Value("${spring.datasource.maxPoolPreparedStatementPerConnectionSize}")  
-	    private int maxPoolPreparedStatementPerConnectionSize;  */
+	    @Value("${spring.datasource.maxPoolPreparedStatementPerConnectionSize}")  
+	    private int maxPoolPreparedStatementPerConnectionSize;  
 	      
 	    @Value("${spring.datasource.filters}")  
 	    private String filters;  
@@ -93,7 +93,7 @@ public class DruidDBConfig {
 	        datasource.setTestOnBorrow(testOnBorrow);  
 	        datasource.setTestOnReturn(testOnReturn);  
 	        datasource.setPoolPreparedStatements(poolPreparedStatements);  
-	       /* datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);*/  
+	        datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);  
 	        try {  
 	            datasource.setFilters(filters);  
 	        } catch (SQLException e) {  
@@ -102,5 +102,5 @@ public class DruidDBConfig {
 	        datasource.setConnectionProperties(connectionProperties);  
 	          
 	        return datasource;  
-	    }  
+	    }  */
 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.PostMapper;
-import com.example.demo.model.Post;
+import com.example.demo.model.tieba.Post;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 

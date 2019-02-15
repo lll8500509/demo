@@ -4,7 +4,7 @@ package com.example.demo.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.example.demo.model.Author;
+import com.example.demo.model.tieba.Author;
 
 @Mapper
 public interface DemoMapper  {

@@ -2,8 +2,11 @@ package com.example.demo.mapper;
 
 import java.util.List;
 
-import com.example.demo.model.Post;
+import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.model.tieba.Post;
+
+@Mapper
 public interface PostMapper {
     int deleteByPrimaryKey(Long id);
 
